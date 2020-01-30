@@ -24,4 +24,6 @@ php bin\console doctrine:fixtures:load -q
 php bin/console doctrine:migrations:migrate
 
 
+php bin\console debug:container PasswordHashSubscriber
+
 https://medium.com/@galopintitouan/executing-database-migrations-at-scale-with-symfony-and-doctrine-4c60f86865b4

@@ -9,11 +9,22 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
     [
         'stdClass' => [
             'collectionOperations' => [
-                [],
+                [
+                    'post',
+                ],
             ],
             'itemOperations' => [
                 [
                     'get',
+                ],
+            ],
+            'attributes' => [
+                [
+                    'normalization_context' => [
+                        'groups' => [
+                            'read',
+                        ],
+                    ],
                 ],
             ],
             'repositoryClass' => [
