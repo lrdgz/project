@@ -22,6 +22,18 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
             'itemOperations' => [
                 1 => [
                     'get',
+                    'put' => [
+                        'access_control' => 'is_granted(\'IS_AUTHENTICATED_FULLY\') and object.getAuthor() == user',
+                    ],
+                ],
+            ],
+            'attributes' => [
+                1 => [
+                    'denormalization_context' => [
+                        'groups' => [
+                            'post',
+                        ],
+                    ],
                 ],
             ],
         ],

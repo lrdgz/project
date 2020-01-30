@@ -3,6 +3,7 @@
 return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\Internal\Hydrator::hydrate(
     $o = [
         clone (($p = &\Symfony\Component\VarExporter\Internal\Registry::$prototypes)['Doctrine\\ORM\\Mapping\\Column'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Doctrine\\ORM\\Mapping\\Column')),
+        clone ($p['Symfony\\Component\\Serializer\\Annotation\\Groups'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Serializer\\Annotation\\Groups')),
         clone ($p['Symfony\\Component\\Validator\\Constraints\\NotBlank'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\NotBlank')),
         clone ($p['Symfony\\Component\\Validator\\Constraints\\Length'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\Length')),
         clone ($p['Symfony\\Component\\Validator\\Constraints\\Regex'] ?? \Symfony\Component\VarExporter\Internal\Registry::p('Symfony\\Component\\Validator\\Constraints\\Regex')),
@@ -14,7 +15,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 255,
             ],
             'groups' => [
-                1 => [
+                2 => [
                     'Default',
                 ],
                 [
@@ -25,16 +26,24 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 ],
             ],
             'max' => [
-                2 => 255,
+                3 => 255,
             ],
             'min' => [
-                2 => 6,
+                3 => 7,
             ],
             'message' => [
-                3 => 'Password must be seven characters long and contain at least one digit, one upper case letter and lower casse letter',
+                4 => 'Password must be seven characters long and contain at least one digit, one upper case letter and lower casse letter',
             ],
             'pattern' => [
-                3 => '/(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{7,}/',
+                4 => '/(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9]).{7,}/',
+            ],
+        ],
+        'Symfony\\Component\\Serializer\\Annotation\\Groups' => [
+            'groups' => [
+                1 => [
+                    'post',
+                    'put',
+                ],
             ],
         ],
     ],
@@ -43,6 +52,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
         $o[1],
         $o[2],
         $o[3],
+        $o[4],
     ],
     []
 ); }];

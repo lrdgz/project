@@ -25,13 +25,14 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 3 => 255,
             ],
             'min' => [
-                3 => 7,
+                3 => 5,
             ],
         ],
         'Symfony\\Component\\Serializer\\Annotation\\Groups' => [
             'groups' => [
                 1 => [
-                    'read',
+                    'get',
+                    'post',
                 ],
             ],
         ],
