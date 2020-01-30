@@ -432,6 +432,10 @@
       <tag name="doctrine.fixture.orm"/>
       <argument type="service" id="security.user_password_encoder.generic"/>
     </service>
+    <service id="App\EventSubscriber\AuthoredEntitySubscriber" class="App\EventSubscriber\AuthoredEntitySubscriber" autowire="true" autoconfigure="true">
+      <tag name="kernel.event_subscriber"/>
+      <argument type="service" id="security.token_storage"/>
+    </service>
     <service id="App\EventSubscriber\PasswordHashSubscriber" class="App\EventSubscriber\PasswordHashSubscriber" autowire="true" autoconfigure="true">
       <tag name="kernel.event_subscriber"/>
       <argument type="service" id="security.user_password_encoder.generic"/>
@@ -2194,6 +2198,14 @@
           <argument>onSecurityPostDenormalize</argument>
         </argument>
         <argument>1</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.view</argument>
+        <argument type="collection">
+          <argument type="service" id="App\EventSubscriber\AuthoredEntitySubscriber"/>
+          <argument>getAuthenticatedUser</argument>
+        </argument>
+        <argument>33</argument>
       </call>
       <call method="addListener">
         <argument>kernel.view</argument>
@@ -5582,6 +5594,8 @@
     <service id=".abstract.instanceof.App\Controller\DefaultController" class="App\Controller\DefaultController" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\EventDispatcher\EventSubscriberInterface.0.App\EventSubscriber\AuthoredEntitySubscriber" class="App\EventSubscriber\AuthoredEntitySubscriber" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\EventSubscriber\AuthoredEntitySubscriber" class="App\EventSubscriber\AuthoredEntitySubscriber" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Symfony\Component\EventDispatcher\EventSubscriberInterface.0.App\EventSubscriber\PasswordHashSubscriber" class="App\EventSubscriber\PasswordHashSubscriber" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\EventSubscriber\PasswordHashSubscriber" class="App\EventSubscriber\PasswordHashSubscriber" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\BlogPostRepository" class="App\Repository\BlogPostRepository" autowire="true" abstract="true"/>
