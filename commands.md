@@ -3,6 +3,7 @@ composer require serializer
 composer require symfony/orm-pack
 composer require symfony/maker-bundle --dev
 composer require --dev doctrine/doctrine-fixtures-bundle
+composer require --dev fzaninotto/faker
 composer require admin
 composer require api
 
@@ -19,4 +20,5 @@ php bin/console make:migration
 php bin/console doctrine:database:create
 php bin/console doctrine:schema:create
 php bin/console doctrine:fixtures:load
+php bin\console doctrine:fixtures:load -q
 php bin/console doctrine:migrations:migrate
