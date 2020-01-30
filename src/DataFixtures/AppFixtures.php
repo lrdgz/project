@@ -3,6 +3,7 @@
 namespace App\DataFixtures;
 
 use App\Entity\BlogPost;
+use App\Entity\Comment;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 //use Doctrine\Common\Persistence\ObjectManager;
@@ -25,7 +26,7 @@ class AppFixtures extends Fixture
     public function __construct(UserPasswordEncoderInterface $passwordEncoder)
     {
         $this->passwordEncoder = $passwordEncoder;
-        $this->faker = Faker\Factory::create();
+        $this->faker = \Faker\Factory::create();
     }
 
     /**
@@ -36,19 +37,23 @@ class AppFixtures extends Fixture
     {
         $this->loadUsersPosts($manager);
         $this->loadBlogPosts($manager);
+        $this->loadCommentsPosts($manager);
     }
 
     public function loadBlogPosts(ObjectManager $manager){
 
         $user = $this->getReference('user_admin');
 
-        for ($i = 0; $i <= 50; $i ++){
+        for ($i = 1; $i <= 100; $i ++){
             $blogPost = new BlogPost();
-            $blogPost->setTitle("A automatic post {$i}!");
-            $blogPost->setPublished(new \DateTime('2020-01-30 12:00:00'));
-            $blogPost->setContent('Post text!');
+            $blogPost->setTitle($this->faker->realText(30));
+            $blogPost->setPublished($this->faker->dateTime);
+            $blogPost->setContent($this->faker->realText());
             $blogPost->setAuthor($user);
-            $blogPost->setSlug("a-automatic-post-{$i}");
+            $blogPost->setSlug($this->faker->slug);
+
+            $this->setReference("blog_post_$i", $blogPost);
+
             $manager->persist($blogPost);
         }
 
@@ -56,7 +61,19 @@ class AppFixtures extends Fixture
     }
 
     public function loadCommentsPosts(ObjectManager $manager){
+        for ($i = 1; $i <= 100; $i ++){
+            for ($j = 1; $j <= rand(1, 10); $j ++){
+                $comment = new Comment();
+                $comment->setContent($this->faker->realText());
+                $comment->setPublished($this->faker->dateTimeThisYear);
+                $comment->setAuthor($this->getReference('user_admin'));
+                $comment->setBlogPost($this->getReference("blog_post_$i"));
 
+                $manager->persist($comment);
+            }
+        }
+
+        $manager->flush();
     }
 
     public function loadUsersPosts(ObjectManager $manager){
