@@ -10,4 +10,5 @@ return [
     'blog_add' => [[], ['_controller' => 'App\\Controller\\BlogController::add'], [], [['text', '/blog/post/add']], [], []],
     'blog_delete' => [['id'], ['_controller' => 'App\\Controller\\BlogController::delete'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/blog/post/delete']], [], []],
     'default_index' => [[], ['_controller' => 'App\\Controller\\DefaultController::index'], [], [['text', '/']], [], []],
+    'easyadmin' => [[], ['_controller' => 'EasyCorp\\Bundle\\EasyAdminBundle\\Controller\\EasyAdminController::indexAction'], [], [['text', '/admin/']], [], []],
 ];
