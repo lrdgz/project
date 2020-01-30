@@ -11,6 +11,16 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
             'repositoryClass' => [
                 'App\\Repository\\BlogPostRepository',
             ],
+            'collectionOperations' => [
+                1 => [
+                    'get',
+                ],
+            ],
+            'itemOperations' => [
+                1 => [
+                    'get',
+                ],
+            ],
         ],
     ],
     [

@@ -8,6 +8,16 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
     null,
     [
         'stdClass' => [
+            'collectionOperations' => [
+                [
+                    'get',
+                ],
+            ],
+            'itemOperations' => [
+                [
+                    'get',
+                ],
+            ],
             'repositoryClass' => [
                 1 => 'App\\Repository\\CommentRepository',
             ],

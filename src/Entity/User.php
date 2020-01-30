@@ -9,7 +9,10 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use \Doctrine\Common\Collections\Collection;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *     itemOperations={"get"},
+ *     collectionOperations={}
+ * )
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
 class User implements UserInterface
