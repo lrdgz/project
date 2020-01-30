@@ -6,6 +6,7 @@ use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
+use \Doctrine\Common\Collections\Collection;
 
 /**
  * @ApiResource()
@@ -41,7 +42,7 @@ class User implements UserInterface
     private $email;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\BlogPost", mappedBy="author")
+     * @ORM\OneToMany(targetEntity="App\Entity\BlogPost", mappedBy="author")
      */
     private $posts;
 
@@ -111,35 +112,19 @@ class User implements UserInterface
     }
 
     /**
-     * @return ArrayCollection
+     * @return Collection
      */
-    public function getPosts(): ArrayCollection
+    public function getPosts(): Collection
     {
         return $this->posts;
     }
 
     /**
-     * @param ArrayCollection $posts
+     * @return Collection
      */
-    public function setPosts(ArrayCollection $posts): void
-    {
-        $this->posts = $posts;
-    }
-
-    /**
-     * @return ArrayCollection
-     */
-    public function getComments(): ArrayCollection
+    public function getComments(): Collection
     {
         return $this->comments;
-    }
-
-    /**
-     * @param ArrayCollection $comments
-     */
-    public function setComments(ArrayCollection $comments): void
-    {
-        $this->comments = $comments;
     }
 
 

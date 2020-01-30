@@ -196,6 +196,14 @@
     <parameter key="security.authentication.hide_user_not_found">true</parameter>
     <parameter key="easyadmin.config" type="collection">
       <parameter key="entities" type="collection">
+        <parameter key="User" type="collection">
+          <parameter key="class">App\Entity\User</parameter>
+          <parameter key="name">User</parameter>
+        </parameter>
+        <parameter key="Comment" type="collection">
+          <parameter key="class">App\Entity\Comment</parameter>
+          <parameter key="name">Comment</parameter>
+        </parameter>
         <parameter key="BlogPost" type="collection">
           <parameter key="class">App\Entity\BlogPost</parameter>
           <parameter key="name">BlogPost</parameter>
@@ -2315,14 +2323,6 @@
       </call>
       <call method="addListener">
         <argument>kernel.request</argument>
-        <argument type="collection">
-          <argument type="service" id="debug.debug_handlers_listener"/>
-          <argument>configure</argument>
-        </argument>
-        <argument>2048</argument>
-      </call>
-      <call method="addListener">
-        <argument>console.command</argument>
         <argument type="collection">
           <argument type="service" id="debug.debug_handlers_listener"/>
           <argument>configure</argument>
