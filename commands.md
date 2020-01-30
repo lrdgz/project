@@ -4,6 +4,7 @@ composer require symfony/orm-pack
 composer require symfony/maker-bundle --dev
 composer require --dev doctrine/doctrine-fixtures-bundle
 composer require admin
+composer require api
 
 
 php -S 127.0.0.1:8000 -t public\
