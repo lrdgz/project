@@ -26,34 +26,39 @@ class AppFixtures extends Fixture
 
     private const USERS = [
         [
-            'username' => 'admin',
-            'email' => 'admin@dev.com',
-            'name' => 'Luis Rodriguez',
-            'password' => 'Secret123#'
+            'username' => 'super',
+            'email' => 'super@dev.com',
+            'name' => 'Super Rodriguez',
+            'password' => 'Secret123#',
+            'roles'    => [User::ROLE_SUPERADMIN]
         ],
         [
-            'username' => 'post',
-            'email' => 'post@dev.com',
-            'name' => 'Luis Rodriguez',
-            'password' => 'Secret123#'
+            'username' => 'admin',
+            'email' => 'admin@dev.com',
+            'name' => 'Admin Rodriguez',
+            'password' => 'Secret123#',
+            'roles'    => [User::ROLE_ADMIN]
+        ],
+        [
+            'username' => 'writer',
+            'email' => 'writer@dev.com',
+            'name' => 'Writer Rodriguez',
+            'password' => 'Secret123#',
+            'roles'    => [User::ROLE_WRITER]
+        ],
+        [
+            'username' => 'editor',
+            'email' => 'editor@dev.com',
+            'name' => 'Editor Rodriguez',
+            'password' => 'Secret123#',
+            'roles'    => [User::ROLE_EDITOR]
         ],
         [
             'username' => 'comment',
             'email' => 'comment@dev.com',
-            'name' => 'Luis Rodriguez',
-            'password' => 'Secret123#'
-        ],
-        [
-            'username' => 'admin2',
-            'email' => 'admin2@dev.com',
-            'name' => 'Luis Rodriguez',
-            'password' => 'Secret123#'
-        ],
-        [
-            'username' => 'admin3',
-            'email' => 'admin3@dev.com',
-            'name' => 'Luis Rodriguez',
-            'password' => 'Secret123#'
+            'name' => 'Comment Rodriguez',
+            'password' => 'Secret123#',
+            'roles'    => [User::ROLE_COMMENTATOR]
         ]
     ];
 
