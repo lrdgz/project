@@ -15,7 +15,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 1 => [
                     'get',
                     'post' => [
-                        'access_control' => 'is_granted(\'IS_AUTHENTICATED_FULLY\')',
+                        'access_control' => 'is_granted(\'ROLE_WRITER\')',
                     ],
                 ],
             ],
@@ -29,7 +29,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                         ],
                     ],
                     'put' => [
-                        'access_control' => 'is_granted(\'IS_AUTHENTICATED_FULLY\') and object.getAuthor() == user',
+                        'access_control' => 'is_granted(\'ROLE_WRITER\') or (is_granted(\'ROLE_EDITOR\') and object.getAuthor() == user)',
                     ],
                 ],
             ],

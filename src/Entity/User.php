@@ -127,7 +127,7 @@ class User implements UserInterface
     private $comments;
 
     /**
-     * @var ORM\Column(type="simple_array", length=200)
+     * @ORM\Column(type="simple_array", length=200)
      */
     private $roles;
 
