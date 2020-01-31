@@ -33,6 +33,8 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 1 => [
                     'get',
                     'post',
+                    'get-comment-with-author',
+                    'get-blog-post-with-author',
                 ],
             ],
         ],

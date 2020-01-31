@@ -32,6 +32,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
             'groups' => [
                 1 => [
                     'post',
+                    'get-comment-with-author',
                 ],
             ],
         ],
